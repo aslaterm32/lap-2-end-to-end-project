@@ -26,7 +26,7 @@ async function login(req, res) {
         if (!authenticated) {
             throw new Error('Incorrect credentials')
         } else {
-            const token = await Token.create(user['id'])
+            const token = await Token.create(user['user_id'])
             res.status(200).json({ authenticated: true, token: token.token })
         }
     } catch (err) {
